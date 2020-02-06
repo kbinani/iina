@@ -86,10 +86,11 @@ extension MainMenuActionHandler {
 
   @objc func menuStep(_ sender: NSMenuItem) {
     let option: Preference.SeekOption = Preference.enum(for: .useExactSeek)
+    let seconds: Double = 5 * player.info.playSpeed
     if sender.tag == 0 { // -> 5s
-      player.seek(relativeSecond: 5, option: option)
+      player.seek(relativeSecond: seconds, option: option)
     } else if sender.tag == 1 { // <- 5s
-      player.seek(relativeSecond: -5, option: option)
+      player.seek(relativeSecond: -seconds, option: option)
     }
   }
 
